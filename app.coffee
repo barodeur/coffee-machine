@@ -22,13 +22,16 @@ messages =
 
 make = (order) ->
   sugar = order.sugar
-  sugar = 2 if sugar > 2
-
-  stick = sugar > 0
 
   # Check money
   if order.money < prices[order.type]
     return "M:#{messages.notEnoughMoney}"
+
+  # Check sugar
+  sugar = 2 if sugar > 2
+
+  # Check stick
+  stick = sugar > 0
 
   orderStr = drinkCodes[order.type]
   sugarStr = if sugar > 0 then sugar else ""
