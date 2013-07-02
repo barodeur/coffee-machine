@@ -1,4 +1,6 @@
 drinks = require './lib/drinks/all'
+redis = require "redis"
+client = redis.createClient()
 
 orderSample =
  type: 'chocolate'
@@ -50,6 +52,13 @@ make = (order) ->
   sugarStr = if sugar > 0 then sugar else ""
   stickStr = if stick then 0 else ""
 
+  client.hincrby "coffee", orderStr, 1
   return "#{orderStr}#{hotStr}:#{sugarStr}:#{stickStr}"
 
 module.exports = make
+
+client.hgetall "coffee", (err, obj) ->
+  console.log "Coffee : #{obj.C} total : #{obj.C * drinks.coffee.price}"
+  console.log "Tea : #{obj.T} total : #{obj.T * drinks.tea.price}"
+  console.log "Chocolate : #{obj.H} total : #{obj.H * drinks.chocolate.price}"
+  console.log "Orange : #{obj.O} total : #{obj.O * drinks.orange.price}"
