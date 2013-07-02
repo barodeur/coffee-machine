@@ -18,7 +18,7 @@ prices =
 
 # MESSAGES
 messages =
-  notEnoughMoney: "NOT ENOUGH MONEY! F*CKING BASTARD!"
+  notEnoughMoney: "Not enough money"
 
 make = (order) ->
   sugar = order.sugar
