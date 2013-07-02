@@ -2,6 +2,7 @@ orderSample =
  type: 'chocolate'
  sugar: 1
  money: 500 # $5
+ extraHot: true
 
 outputSample = "H:1:0"
 
@@ -10,11 +11,13 @@ drinkCodes =
   'chocolate': 'H'
   'tea': 'T'
   'coffee': 'C'
+  'orange': 'O'
 
 prices =
   chocolate: 50
   tea: 40
   coffee: 60
+  orange: 60
 
 # MESSAGES
 messages =
