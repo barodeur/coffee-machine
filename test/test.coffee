@@ -34,3 +34,23 @@ describe 'CoffeeMachine', () ->
         type: "coffee"
         sugar: 2
         money: 60
+
+  describe 'Ogrange tests', () ->
+    it 'sould not give sugar with orange juice', ->
+      assert.equal "O::", make
+        type: 'orange'
+        sugar: 1
+        money: 100
+  describe 'keep it hot pleaze', () ->
+    it 'should keep my chocolate extra hot !', ->
+      assert.equal "Hh:1:0", make
+        type: 'chocolate'
+        sugar: 1
+        money: 100
+        extraHot: true
+    it 'my orange should not be warmed', ->
+      assert.equal "O::", make
+        type: 'orange'
+        sugar: 1
+        money: 100
+        extraHot: true
