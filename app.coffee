@@ -1,3 +1,5 @@
+drinks = require './lib/drinks/all'
+
 orderSample =
  type: 'chocolate'
  sugar: 1
