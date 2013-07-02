@@ -13,6 +13,10 @@ drinkCodes =
   'coffee': 'C'
   'orange': 'O'
 
+coldDrinks = [
+  'orange'
+]
+
 prices =
   chocolate: 50
   tea: 40
@@ -26,6 +30,9 @@ messages =
 make = (order) ->
   sugar = order.sugar
 
+  if order.type is 'orange'
+    return 'O::'
+
   # Check money
   if order.money < prices[order.type]
     return "M:#{messages.notEnoughMoney}"
@@ -37,9 +44,10 @@ make = (order) ->
   stick = sugar > 0
 
   orderStr = drinkCodes[order.type]
+  hotStr = if order.extraHot and coldDrinks.indexOf(order.type) == -1 then "h" else ""
   sugarStr = if sugar > 0 then sugar else ""
   stickStr = if stick then 0 else ""
 
-  return "#{orderStr}:#{sugarStr}:#{stickStr}"
+  return "#{orderStr}#{hotStr}:#{sugarStr}:#{stickStr}"
 
 module.exports = make
