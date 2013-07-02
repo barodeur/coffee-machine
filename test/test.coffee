@@ -30,7 +30,7 @@ describe 'CoffeeMachine', () ->
         sugar: 1
         money: 50
 
-      assert.not.equal "M:Not enough money", make
+      assert.notEqual "M:Not enough money", make
         type: "coffee"
         sugar: 2
         money: 60
