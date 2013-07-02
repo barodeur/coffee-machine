@@ -1,6 +1,7 @@
 orderSample =
  type: 'chocolate'
  sugar: 1
+ money: 500 # $5
 
 outputSample = "H:1:0"
 
