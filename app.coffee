@@ -33,12 +33,13 @@ messages =
 
 make = (order) ->
   sugar = order.sugar
+  drink = drinks[order.type]
 
   if order.type is 'orange'
     return 'O::'
 
   # Check money
-  if order.money < prices[order.type]
+  if order.money < drink.price
     return "M:#{messages.notEnoughMoney}"
 
   # Check sugar
@@ -47,8 +48,8 @@ make = (order) ->
   # Check stick
   stick = sugar > 0
 
-  orderStr = drinkCodes[order.type]
-  hotStr = if order.extraHot and coldDrinks.indexOf(order.type) == -1 then "h" else ""
+  orderStr = drink.code
+  hotStr = if order.extraHot and drink.canBeHot then "h" else ""
   sugarStr = if sugar > 0 then sugar else ""
   stickStr = if stick then 0 else ""
 
