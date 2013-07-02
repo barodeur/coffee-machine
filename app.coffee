@@ -58,7 +58,15 @@ make = (order) ->
 module.exports = make
 
 client.hgetall "coffee", (err, obj) ->
-  console.log "Coffee : #{obj.C} total : #{obj.C * drinks.coffee.price}"
-  console.log "Tea : #{obj.T} total : #{obj.T * drinks.tea.price}"
-  console.log "Chocolate : #{obj.H} total : #{obj.H * drinks.chocolate.price}"
-  console.log "Orange : #{obj.O} total : #{obj.O * drinks.orange.price}"
+  cprice = obj.C * drinks.coffee.price / 100 || 0
+  tprice = obj.T * drinks.tea.price / 100 || 0
+  hprice = obj.H * drinks.chocolate.price / 100 || 0
+  oprice = obj.O * drinks.orange.price / 100 || 0
+
+  console.log "Coffee : #{obj.C || 0} total : #{cprice}€"
+  console.log "Tea : #{obj.T || 0} total : #{tprice}€"
+  console.log "Chocolate : #{obj.H || 0} total : #{hprice}€"
+  console.log "Orange : #{obj.O || 0} total : #{oprice}€"
+  console.log "Total : #{cprice + tprice + hprice + oprice}€"
+
+  process.exit 0
