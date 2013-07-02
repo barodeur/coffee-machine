@@ -1,0 +1,21 @@
+{
+  "name": "coffee-machine",
+  "version": "0.0.1",
+  "description": "DO THE COFFEE",
+  "main": "index.js",
+  "dependencies": {
+    "coffee-script": "1.6",
+    "mocha" : "1.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
